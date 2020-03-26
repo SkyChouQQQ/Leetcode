@@ -1,0 +1,13 @@
+public class Solution {
+	//Approach 1: Brute Force
+    public int ClimbStairs(int n) {
+        return Climb_Stairs(0,n);             
+    }
+    
+    public int Climb_Stairs(int i,int n) {
+        if(i>n) {return 0;}
+        if(i==n) {return 1;}
+        return Climb_Stairs(i+1,n)+Climb_Stairs(i+2,n);
+    }
+    //Approach 4: Fibonacci Number
+}
