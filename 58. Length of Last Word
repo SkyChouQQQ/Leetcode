@@ -1,0 +1,12 @@
+public class Solution {
+    public int LengthOfLastWord(string s) {
+        int res = 0;
+        for(int index = 0;index<s.Length;++index) {
+            if(s[index]!=' ') {
+                if(index!=0 && s[index-1]==' ') {res=1; }
+                else {++res;}
+            }
+        }
+        return res;
+    }
+}
