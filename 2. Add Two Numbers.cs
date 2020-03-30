@@ -18,8 +18,8 @@ public class Solution {
             carry = sum/10;
             currentHead.next = new ListNode(sum%10);
             currentHead = currentHead.next;
-            first = (first!=null)?first.next:first;
-            second = (second!=null)?second.next:second;
+            if(first!=null) {first = first.next;}
+            if(second!=null) {second = second.next;}
         }
         if(carry>0) {
             currentHead.next = new ListNode(carry);
