@@ -1,0 +1,34 @@
+public class Solution {
+	//Approach 1: Brute Force
+    public int MaxArea(int[] height) {
+        int max = 0;
+        int count = height.Count();
+        for(int firstIndex=0;firstIndex<count;++firstIndex) {
+            for(int secondIndex=1;secondIndex<count;++secondIndex) {
+                int wallHeight = (height[firstIndex]<height[secondIndex])?height[firstIndex]:height[secondIndex];
+                int volume = (secondIndex-firstIndex)*wallHeight;
+                max = (volume>max)?volume:max;
+                    }
+                }
+        return max;
+            }
+            
+    //Approach 2: Two Pointer Approach
+        public int MaxArea(int[] height) {
+                int maxArea=0;
+                int left=0;
+                int right = height.Count()-1;
+            while(left<right) {
+                int wallHeight = Math.Min(height[left],height[right]);
+                int volume = wallHeight*(right-left);
+                maxArea = Math.Max(volume,maxArea);
+                
+                if(height[left]<height[right]) {
+                    ++left;
+                } else {
+                    --right;
+                }
+            }
+            return maxArea;
+            }        
+        }
